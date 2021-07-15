@@ -6,10 +6,10 @@ Most of large websites store their static content such as Images, JavaScrips & C
 
 As the CDN has a different domain name, it also provides **domain sharding** benefits. Web browsers are restricted to download several items at once, so the more you use resources hosted on external domains the faster a page loads. This applies to everything from images to javascripts. Hence, Requests for static resources should be parallelized and balanced across the hostnames. -[Quora](https://qr.ae/pGMOQC)
 
-###Without a CDN
+### Without a CDN
 ![without a cdn](https://github.com/mcodemax/Frontend_QnA/blob/main/images/without-a-cdn.webp?raw=true)
 
-###With a CDN
+### With a CDN
 ![with a cdn](https://github.com/mcodemax/Frontend_QnA/blob/main/images/with-a-cdn.webp?raw=true)
 
 
