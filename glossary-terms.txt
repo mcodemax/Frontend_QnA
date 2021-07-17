@@ -1,1 +1,8 @@
-domain sharding
+domain sharding: https://developer.mozilla.org/en-US/docs/Glossary/Domain_sharding
+three-way handshake: https://medium.com/@maneesha.wijesinghe1/what-happens-when-you-type-an-url-in-the-browser-and-press-enter-bb0aa2449c1a
+
+This is a three-step process where the client and the server exchange SYN(synchronize) and ACK(acknowledge) messages to establish a connection.
+1. The client machine sends a SYN packet to the server over the internet, asking if it is open for new connections.
+2. If the server has open ports that can accept and initiate new connections, it’ll respond with an ACKnowledgment of the SYN packet using a SYN/ACK packet.
+3. The client will receive the SYN/ACK packet from the server and will acknowledge it by sending an ACK packet.
+
