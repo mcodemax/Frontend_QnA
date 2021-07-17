@@ -11,3 +11,6 @@ An event can be defined as "a significant change in state".[1] For example, when
 
 EventSource API:
 The EventSource interface is web content's interface to server-sent events. An EventSource instance opens a persistent connection to an HTTP server, which sends events in text/event-stream format. The connection remains open until closed by calling EventSource.close().[Mozilla] (https://developer.mozilla.org/en-US/docs/Web/API/EventSource)
+
+Clickjacking:
+Clickjacking is a malicious technique of tricking a user into clicking on something different from what the user perceives, thus potentially revealing confidential information or allowing others to take control of their computer while clicking on seemingly innocuous objects, including web pages.[Wikipedia](https://en.wikipedia.org/wiki/Clickjacking)

@@ -141,4 +141,24 @@ As SSE is based on HTTP, it is more compliant with existing IT infrastructure li
 ----- 
 EventSource [or Server-sent events] is a useful approach for handling things like social media status updates, news feeds, or delivering data into a client-side storage mechanism like IndexedDB or web storage. [Mozilla](https://developer.mozilla.org/en-US/docs/Web/API/EventSource)
 
+## Explain the following request and response headers:
+
+- Diff. between Expires, Date, Age and If-Modified-...
+- Do Not Track
+- Cache-Control
+- Transfer-Encoding
+- ETag
+- X-Frame-Options
+
+This is a summary of what these headers are:
   
+- Expires - will be labeled stale after specified date.
+- Date - The date and time that message was sent.
+- Age - The age that object has lived in seconds.
+- If-Modified-Since - will return 304 unchanged status code if content is unchanged.
+- Transfer-encoding - In normal circumstance server will tell client the content length which server sent, but in some circumstance the content's length remains unknown, and server will send content in chunks. Specifying Transfer-encoding tells client server is sending in this way.
+- ETag - an identifier which is used to identify version of a file/resource .
+- X-Frame-Options - **Clickjacking** protection.
+- Cache-Control - an attribute tells browser how. [Quora](https://www.quora.com/Could-anyone-explain-the-following-request-and-response-headers-read-question-details)
+- Do Not Track - Every time your computer sends or receives information over the Web, the request begins with some short pieces of information called headers. These headers include information like what browser you're using, what language your computer is set to, and other technical details. The Do Not Track signal is a machine-readable header indicating that you don't want to be tracked. Because this signal is a header, and not a cookie, users can clear their cookies at will without disrupting the functionality of the Do Not Track flag. [Electronic Frontier Foundation](https://www.eff.org/issues/do-not-track)
+
