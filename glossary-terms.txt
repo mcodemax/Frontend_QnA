@@ -6,3 +6,8 @@ This is a three-step process where the client and the server exchange SYN(synchr
 2. If the server has open ports that can accept and initiate new connections, it’ll respond with an ACKnowledgment of the SYN packet using a SYN/ACK packet.
 3. The client will receive the SYN/ACK packet from the server and will acknowledge it by sending an ACK packet.
 
+Event-driven architecture:
+An event can be defined as "a significant change in state".[1] For example, when a consumer purchases a car, the car's state changes from "for sale" to "sold". A car dealer's system architecture may treat this state change as an event whose occurrence can be made known to other applications within the architecture
+
+EventSource API:
+The EventSource interface is web content's interface to server-sent events. An EventSource instance opens a persistent connection to an HTTP server, which sends events in text/event-stream format. The connection remains open until closed by calling EventSource.close().[Mozilla] (https://developer.mozilla.org/en-US/docs/Web/API/EventSource)
