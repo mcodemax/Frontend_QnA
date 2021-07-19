@@ -169,7 +169,7 @@ EventSource [or Server-sent events] is a useful approach for handling things lik
 ----------
 ## What are HTTP methods? List all HTTP methods that you know, and explain them.
 
-HTTP methods are used to communicate with a server. There are five HTTP methods:
+HTTP methods are used to communicate with a server. Some useful HTTP methods to know are:
 1. GET - used to retrieve resources from a server.
 2. POST - used to send data to a server.
 3. PUT - used to replace a resource on the server.
