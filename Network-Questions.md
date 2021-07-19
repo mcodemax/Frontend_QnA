@@ -13,6 +13,7 @@ As the CDN has a different domain name, it also provides **domain sharding** ben
 ### With a CDN
 ![with a cdn](https://github.com/mcodemax/Frontend_QnA/blob/main/images/with-a-cdn.webp?raw=true)
 
+----------
 ## Do your best to describe the process from the time you type in a website's URL to it finishing loading on your screen.
 
 When I enter a website's URL, in the transport layer, it will ask a local DNS what is the IP of the provided URL. We know the IP of the local DNS server by the DHCP protocol, when a node connects to internet and gets an IP address.
@@ -21,7 +22,7 @@ After that, a browser will try to establish a TCP connection with a server havin
 
 After the HTTP request is sent and the server responds with an HTTP response, the browser will parse the HTTP response header and body, and will render the website. If the document contains additional assets, the browser will create HTTP requests for the assets and send them like above -[Quizlet](https://quizlet.com/fr/175329230/web-developer-interview-questions-network-flash-cards/)
 
-----------
+-----
 
 Let us suppose that you type the URL www.quora.com
 
@@ -150,7 +151,7 @@ EventSource [or Server-sent events] is a useful approach for handling things lik
 - ETag
 - X-Frame-Options
 
-This is a summary of what these headers are:
+### This is a summary of what these headers are:
   
 - Expires - will be labeled stale after specified date.
 - Date - The date and time that message was sent.
@@ -160,5 +161,64 @@ This is a summary of what these headers are:
 - ETag - an identifier which is used to identify version of a file/resource .
 - X-Frame-Options - **Clickjacking** protection.
 - Cache-Control - an attribute tells browser how. [Quora](https://www.quora.com/Could-anyone-explain-the-following-request-and-response-headers-read-question-details)
+
+-----
+
 - Do Not Track - Every time your computer sends or receives information over the Web, the request begins with some short pieces of information called headers. These headers include information like what browser you're using, what language your computer is set to, and other technical details. The Do Not Track signal is a machine-readable header indicating that you don't want to be tracked. Because this signal is a header, and not a cookie, users can clear their cookies at will without disrupting the functionality of the Do Not Track flag. [Electronic Frontier Foundation](https://www.eff.org/issues/do-not-track)
+
+----------
+## What are HTTP methods? List all HTTP methods that you know, and explain them.
+
+HTTP methods are used to communicate with a server. There are five HTTP methods:
+1. GET - used to retrieve resources from a server.
+2. POST - used to send data to a server.
+3. PUT - used to replace a resource on the server.
+4. DELETE - used to delete a resource from the server.
+5. PATCH - used to update a resource on the server.
+6. HEAD - used to retrieve metadata from a server.
+7. OPTIONS - used to retrieve information about the server.
+
+
+----- The section below, except for the definition for "HEAD" is from [Assertible - Cody Reichert](https://assertible.com/blog/7-http-methods-every-web-developer-should-know-and-how-to-test-them) -----
+### GET 
+
+GET requests are the most common and widely used methods in APIs and websites. Simply put, the GET method is used to retreive data from a server at the specified resource. For example, say you have an API with a /users endpoint. Making a GET request to that endpoint should return a list of all available users.
+
+Since a GET request is only requesting data and not modifying any resources, it's considered a safe and **idempotent** method.
+
+### POST
+
+In web services, POST requests are used to send data to the API server to create or update a resource. The data sent to the server is stored in the request body of the HTTP request.
+
+It's worth noting that a POST request is non-idempotent. It mutates data on the backend server (by creating or updating a resource), as opposed to a GET request which does not change any data.
+
+### PUT
+
+Simlar to POST, PUT requests are used to send data to the API to update or create a resource. The difference is that PUT requests are idempotent. That is, calling the same PUT request multiple times will always produce the same result. In contrast, calling a POST request repeatedly make have side effects of creating the same resource multiple times.
+
+Generally, when a PUT request creates a resource the server will respond with a 201 (Created), and if the request modifies existing resource the server will return a 200 (OK) or 204 (No Content).
+
+### PATCH
+
+A PATCH request is one of the lesser-known HTTP methods, but I'm including it this high in the list since it is similar to POST and PUT. The difference with PATCH is that you only apply partial modifications to the resource.
+
+The difference between PATCH and PUT, is that a PATCH request is non-idempotent (like a POST request).
+
+To expand on partial modification, say you're API has a /users/{{userid}} endpoint, and a user has a username. With a PATCH request, you may only need to send the updated username in the request body - as opposed to POST and PUT which require the full user entity.
+
+### DELETE
+
+The DELETE method is exactly as it sounds: delete the resource at the specified URL. This method is one of the more common in RESTful APIs so it's good to know how it works.
+
+If a new user is created with a POST request to /users, and it can be retrieved with a GET request to /users/{{userid}}, then making a DELETE request to /users/{{userid}} will completely remove that user.
+
+### HEAD
+
+The HTTP HEAD method requests the headers that would be returned if the HEAD request's URL was instead requested with the HTTP GET method. For example, if a URL might produce a large download, a HEAD request could read its Content-Length header to check the filesize without actually downloading the file. [MOZILLA](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD)
+
+### OPTIONS
+
+Last but not least we have OPTIONS requests. OPTIONS requests are one of my favorites, though not as widely used as the other HTTP methods. In a nutshell, an OPTIONS request should return data describing what other methods and operations the server supports at the given URL.
+
+OPTIONS requests are more loosely defined and used than the others, making them a good candidate to test for fatal API errors. If an API isn't expecting an OPTIONS request, it's good to put a test case in place that verifies failing behavior.
 

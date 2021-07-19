@@ -14,3 +14,9 @@ The EventSource interface is web content's interface to server-sent events. An E
 
 Clickjacking:
 Clickjacking is a malicious technique of tricking a user into clicking on something different from what the user perceives, thus potentially revealing confidential information or allowing others to take control of their computer while clicking on seemingly innocuous objects, including web pages.[Wikipedia](https://en.wikipedia.org/wiki/Clickjacking)
+
+Idempotent: [MOZILLA](https://developer.mozilla.org/en-US/docs/Glossary/Idempotent)
+
+An HTTP method is idempotent if an identical request can be made once or several times in a row with the same effect while leaving the server in the same state. In other words, an idempotent method should not have any side-effects (except for keeping statistics). Implemented correctly, the GET, HEAD, PUT, and DELETE methods are idempotent, but not the POST method. All safe methods are also idempotent.
+
+To be idempotent, only the actual back-end state of the server is considered, the status code returned by each request may differ: the first call of a DELETE will likely return a 200, while successive ones will likely return a 404. Another implication of DELETE being idempotent is that developers should not implement RESTful APIs with a delete last entry functionality using the DELETE method.
